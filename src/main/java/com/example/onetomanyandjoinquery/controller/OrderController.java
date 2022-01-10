@@ -1,6 +1,7 @@
 package com.example.onetomanyandjoinquery.controller;
 
 import com.example.onetomanyandjoinquery.dto.OrderRequest;
+import com.example.onetomanyandjoinquery.dto.OrderResponse;
 import com.example.onetomanyandjoinquery.entity.Customer;
 import com.example.onetomanyandjoinquery.repository.CustomerRepository;
 import com.example.onetomanyandjoinquery.repository.ProductRepository;
@@ -27,5 +28,10 @@ public class OrderController {
   @GetMapping("/findAllOrders")
   public List<Customer> findAllOrders() {
     return customerRepository.findAll();
+  }
+
+  @GetMapping("getInfo")
+  public List<OrderResponse> getJoinInformation() {
+    return customerRepository.getJoinInformation();
   }
 }
