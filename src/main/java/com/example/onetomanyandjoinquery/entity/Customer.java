@@ -25,7 +25,6 @@ public class Customer {
   private String name;
   private String email;
   private String gender;
-
   @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
   @JoinColumn(name = "customer_product_foreign_key", referencedColumnName = "id")
   private List<Product> products;
