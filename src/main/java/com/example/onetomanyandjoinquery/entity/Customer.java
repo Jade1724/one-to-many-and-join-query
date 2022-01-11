@@ -1,5 +1,6 @@
 package com.example.onetomanyandjoinquery.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,5 +29,12 @@ public class Customer {
   @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
   @JoinColumn(name = "customer_product_foreign_key", referencedColumnName = "id")
   private List<Product> products;
+
+  public void addProduct(Product product) {
+    if (this.products == null) {
+      this.products = new ArrayList<>();
+    }
+    this.products.add(product);
+  }
 
 }
